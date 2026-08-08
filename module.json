@@ -1,0 +1,8 @@
+{
+  "id": "deki-i2s",
+  "displayName": "I2S",
+  "buildDefine": "DEKI_MODULE_I2S",
+  "requires": [],
+  "features": [],
+  "dependencies": {}
+}
