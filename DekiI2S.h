@@ -1,13 +1,13 @@
 #pragma once
 
 #include "IDekiI2S.h"
-#include "DekiI2SModule.h"
+#include "DekiI2SPackage.h"
 
 /**
  * @brief Factory for I2S instances. Each chip driver owns its own I2S
  * (I2S is point-to-point, so there's no shared-bus registry).
  *
- * Platform integration modules (e.g. deki-esp32-integration) call SetFactory
+ * Platform integration packages (e.g. deki-esp32-integration) call SetFactory
  * at boot; chip drivers call Create() when they need an instance.
  */
 class DEKI_I2S_API DekiI2S

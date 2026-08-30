@@ -13,7 +13,7 @@ IDekiI2S* DekiI2S::Create()
 {
     if (!s_Factory)
     {
-        DEKI_LOG_ERROR("DekiI2S: No factory registered - platform module must call SetFactory()");
+        DEKI_LOG_ERROR("DekiI2S: No factory registered - platform package must call SetFactory()");
         return nullptr;
     }
     return s_Factory();

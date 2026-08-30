@@ -1,4 +1,4 @@
-#include "DekiI2SModule.h"
+#include "DekiI2SPackage.h"
 #include "interop/DekiPlugin.h"
 #include "DekiLogSystem.h"
 
@@ -24,11 +24,11 @@ DEKI_I2S_API int DekiI2S_EnsureRegistered(void)
 #endif
 }
 
-DEKI_PLUGIN_API const char* DekiPlugin_GetName(void)    { return "Deki I2S Module"; }
+DEKI_PLUGIN_API const char* DekiPlugin_GetName(void)    { return "Deki I2S Package"; }
 DEKI_PLUGIN_API const char* DekiPlugin_GetVersion(void)
 {
-#ifdef DEKI_MODULE_VERSION
-    return DEKI_MODULE_VERSION;
+#ifdef DEKI_PACKAGE_VERSION
+    return DEKI_PACKAGE_VERSION;
 #else
     return "0.0.0-dev";
 #endif
@@ -57,9 +57,9 @@ DEKI_PLUGIN_API void DekiPlugin_RegisterComponents(void)
 }
 
 DEKI_PLUGIN_API int DekiPlugin_GetFeatureCount(void) { return 0; }
-DEKI_PLUGIN_API const struct DekiModuleFeatureInfo* DekiPlugin_GetFeature(int) { return nullptr; }
+DEKI_PLUGIN_API const struct DekiPackageFeatureInfo* DekiPlugin_GetFeature(int) { return nullptr; }
 
-// Pure utility module — facade-only. Nothing to register at module load.
-DEKI_PLUGIN_API void DekiPlugin_RegisterModules(void) {}
+// Pure utility package — facade-only. Nothing to register at package load.
+DEKI_PLUGIN_API void DekiPlugin_RegisterPackages(void) {}
 
 }  // extern "C"
