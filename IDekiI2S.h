@@ -13,8 +13,8 @@
  *
  * Pin names in PackageConfig.pins: "BCLK", "LRCLK", "DOUT".
  * Settings in PackageConfig.settings:
- *   "i2s_port"        -> int    (default 0)
- *   "sample_rate"     -> int    (default 16000)
+ *   "i2sPort"        -> int    (default 0)
+ *   "sampleRate"     -> int    (default 16000)
  *   "bits_per_sample" -> int    (default 16)
  *   "channels"        -> int    (1 = mono, 2 = stereo; default 1)
  */
