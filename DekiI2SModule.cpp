@@ -33,7 +33,6 @@ DEKI_PLUGIN_API const char* DekiPlugin_GetVersion(void)
     return "0.0.0-dev";
 #endif
 }
-DEKI_PLUGIN_API const char* DekiPlugin_GetReflectionJson(void) { return "{}"; }
 DEKI_PLUGIN_API int  DekiPlugin_Init(void)     { DEKI_LOG_INFO("[deki-i2s] DekiPlugin_Init"); return 0; }
 DEKI_PLUGIN_API void DekiPlugin_Shutdown(void) { s_I2SRegistered = false; }
 
@@ -56,10 +55,7 @@ DEKI_PLUGIN_API void DekiPlugin_RegisterComponents(void)
 #endif
 }
 
-DEKI_PLUGIN_API int DekiPlugin_GetFeatureCount(void) { return 0; }
-DEKI_PLUGIN_API const struct DekiPackageFeatureInfo* DekiPlugin_GetFeature(int) { return nullptr; }
 
 // Pure utility package — facade-only. Nothing to register at package load.
-DEKI_PLUGIN_API void DekiPlugin_RegisterPackages(void) {}
 
 }  // extern "C"
