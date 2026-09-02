@@ -1,3 +1,7 @@
+/**
+ * @file DekiI2SPackage.cpp
+ * @brief Package entry point for deki-i2s
+ */
 #include "DekiI2SPackage.h"
 #include "interop/DekiPlugin.h"
 #include "DekiLogSystem.h"
