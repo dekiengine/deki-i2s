@@ -4,7 +4,7 @@ I2S audio bus peripheral interface for the Deki Engine. Defines `IDekiI2S`: port
 
 Audio backends such as the MAX98357 driver in `deki-audio` push samples through this interface.
 
-Part of the [Deki Engine](https://github.com/ATeam-Dekiru/deki-engine) package ecosystem.
+Part of the [Deki Engine](https://github.com/dekiengine/deki-engine) package ecosystem.
 
 ## Installation
 
