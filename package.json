@@ -1,7 +1,7 @@
 {
   "id": "deki-i2s",
   "displayName": "I2S",
-  "minEngine": "2.0.0",
+  "minEngine": "0.10.0",
   "buildDefine": "DEKI_PACKAGE_I2S",
   "requires": [],
   "features": [],
