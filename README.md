@@ -1,5 +1,7 @@
 # Deki I2S
 
+Documentation: https://dekiengine.github.io/deki-i2s/ (components and properties, generated from the code)
+
 I2S audio bus peripheral interface for the Deki Engine. Defines `IDekiI2S`: port selection, start, stop, and buffered writes with timeout.
 
 Audio backends such as the MAX98357 driver in `deki-audio` push samples through this interface.
