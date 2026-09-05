@@ -18,7 +18,7 @@
  *   "bits_per_sample" -> int    (default 16)
  *   "channels"        -> int    (1 = mono, 2 = stereo; default 1)
  */
-class IDekiI2S : public IDekiPackage
+class IDekiI2S : public Deki::IPackage
 {
 public:
     const char* GetPackageCategory() const override { return "i2s"; }

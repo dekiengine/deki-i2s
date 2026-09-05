@@ -9,7 +9,7 @@
 #ifdef DEKI_EDITOR
 extern void DekiI2S_RegisterComponents();
 extern int  DekiI2S_GetAutoComponentCount();
-extern const DekiComponentMeta* DekiI2S_GetAutoComponentMeta(int index);
+extern const Deki::ComponentMeta* DekiI2S_GetAutoComponentMeta(int index);
 #endif
 
 static bool s_I2SRegistered = false;
@@ -42,13 +42,13 @@ DEKI_PLUGIN_API void DekiPlugin_Shutdown(void) { s_I2SRegistered = false; }
 
 #ifdef DEKI_EDITOR
 DEKI_PLUGIN_API int  DekiPlugin_GetComponentCount(void) { return DekiI2S_GetAutoComponentCount(); }
-DEKI_PLUGIN_API const DekiComponentMeta* DekiPlugin_GetComponentMeta(int index)
+DEKI_PLUGIN_API const Deki::ComponentMeta* DekiPlugin_GetComponentMeta(int index)
 {
     return DekiI2S_GetAutoComponentMeta(index);
 }
 #else
 DEKI_PLUGIN_API int  DekiPlugin_GetComponentCount(void) { return 0; }
-DEKI_PLUGIN_API const DekiComponentMeta* DekiPlugin_GetComponentMeta(int) { return nullptr; }
+DEKI_PLUGIN_API const Deki::ComponentMeta* DekiPlugin_GetComponentMeta(int) { return nullptr; }
 #endif
 
 DEKI_PLUGIN_API void DekiPlugin_RegisterComponents(void)
