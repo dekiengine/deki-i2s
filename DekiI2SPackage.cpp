@@ -38,7 +38,7 @@ DEKI_I2S_API int DekiI2S_EnsureRegistered(void)
 #endif
 }
 
-DEKI_PLUGIN_API const char* DekiPlugin_GetName(void)    { return "DekiRendering::Deki I2S Package"; }
+DEKI_PLUGIN_API const char* DekiPlugin_GetName(void)    { return "Deki I2S Package"; }
 DEKI_PLUGIN_API const char* DekiPlugin_GetVersion(void)
 {
 #ifdef DEKI_PACKAGE_VERSION
