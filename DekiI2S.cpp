@@ -1,6 +1,9 @@
 #include "DekiI2S.h"
 #include <deki/LogSystem.h>
 
+namespace DekiI2s
+{
+
 DekiI2S::Factory DekiI2S::s_Factory = nullptr;
 
 void DekiI2S::SetFactory(Factory factory)
@@ -23,3 +26,5 @@ bool DekiI2S::HasFactory()
 {
     return s_Factory != nullptr;
 }
+
+}  // namespace DekiI2s

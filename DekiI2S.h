@@ -3,6 +3,9 @@
 #include "IDekiI2S.h"
 #include "DekiI2SPackage.h"
 
+namespace DekiI2s
+{
+
 /**
  * @brief Factory for I2S instances. Each chip driver owns its own I2S
  * (I2S is point-to-point, so there's no shared-bus registry).
@@ -22,3 +25,5 @@ public:
 private:
     static Factory s_Factory;
 };
+
+}  // namespace DekiI2s

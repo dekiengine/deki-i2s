@@ -4,6 +4,9 @@
 #include <cstdint>
 #include <cstddef>
 
+namespace DekiI2s
+{
+
 /**
  * @brief Abstract I2S peripheral interface.
  *
@@ -37,3 +40,5 @@ public:
     virtual bool Start() = 0;
     virtual bool Stop()  = 0;
 };
+
+}  // namespace DekiI2s

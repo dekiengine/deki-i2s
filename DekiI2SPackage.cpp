@@ -6,29 +6,39 @@
 #include <deki/interop/Plugin.h>
 #include <deki/LogSystem.h>
 
-#ifdef DEKI_EDITOR
 extern void DekiI2S_RegisterComponents();
 extern int  DekiI2S_GetAutoComponentCount();
 extern const Deki::ComponentMeta* DekiI2S_GetAutoComponentMeta(int index);
+
+namespace DekiI2s
+{
+
+#ifdef DEKI_EDITOR
 #endif
 
 static bool s_I2SRegistered = false;
+
+
+}  // namespace DekiI2s
+// The exports below are C symbols at global scope; the package's own
+// registration helpers and statics live in its namespace.
+using namespace DekiI2s;
 
 extern "C" {
 
 DEKI_I2S_API int DekiI2S_EnsureRegistered(void)
 {
 #ifdef DEKI_EDITOR
-    if (s_I2SRegistered) return DekiI2S_GetAutoComponentCount();
+    if (s_I2SRegistered) return ::DekiI2S_GetAutoComponentCount();
     s_I2SRegistered = true;
-    DekiI2S_RegisterComponents();
-    return DekiI2S_GetAutoComponentCount();
+    ::DekiI2S_RegisterComponents();
+    return ::DekiI2S_GetAutoComponentCount();
 #else
     return 0;
 #endif
 }
 
-DEKI_PLUGIN_API const char* DekiPlugin_GetName(void)    { return "Deki I2S Package"; }
+DEKI_PLUGIN_API const char* DekiPlugin_GetName(void)    { return "DekiRendering::Deki I2S Package"; }
 DEKI_PLUGIN_API const char* DekiPlugin_GetVersion(void)
 {
 #ifdef DEKI_PACKAGE_VERSION
@@ -41,10 +51,10 @@ DEKI_PLUGIN_API int  DekiPlugin_Init(void)     { DEKI_LOG_INFO("[deki-i2s] DekiP
 DEKI_PLUGIN_API void DekiPlugin_Shutdown(void) { s_I2SRegistered = false; }
 
 #ifdef DEKI_EDITOR
-DEKI_PLUGIN_API int  DekiPlugin_GetComponentCount(void) { return DekiI2S_GetAutoComponentCount(); }
+DEKI_PLUGIN_API int  DekiPlugin_GetComponentCount(void) { return ::DekiI2S_GetAutoComponentCount(); }
 DEKI_PLUGIN_API const Deki::ComponentMeta* DekiPlugin_GetComponentMeta(int index)
 {
-    return DekiI2S_GetAutoComponentMeta(index);
+    return ::DekiI2S_GetAutoComponentMeta(index);
 }
 #else
 DEKI_PLUGIN_API int  DekiPlugin_GetComponentCount(void) { return 0; }
@@ -55,7 +65,7 @@ DEKI_PLUGIN_API void DekiPlugin_RegisterComponents(void)
 {
 #ifdef DEKI_EDITOR
     int n = DekiI2S_EnsureRegistered();
-    DEKI_LOG_INFO("[deki-i2s] DekiPlugin_RegisterComponents -> %d component(s)", n);
+    DEKI_LOG_INFO("[deki-i2s] ::DekiPlugin_RegisterComponents -> %d component(s)", n);
 #endif
 }
 
@@ -63,3 +73,4 @@ DEKI_PLUGIN_API void DekiPlugin_RegisterComponents(void)
 // Pure utility package — facade-only. Nothing to register at package load.
 
 }  // extern "C"
+
