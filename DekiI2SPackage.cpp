@@ -47,7 +47,7 @@ DEKI_PLUGIN_API const char* DekiPlugin_GetVersion(void)
     return "0.0.0-dev";
 #endif
 }
-DEKI_PLUGIN_API int  DekiPlugin_Init(void)     { DEKI_LOG_INFO("[deki-i2s] DekiPlugin_Init"); return 0; }
+DEKI_PLUGIN_API int  DekiPlugin_Init(void)     { return 0; }
 DEKI_PLUGIN_API void DekiPlugin_Shutdown(void) { s_I2SRegistered = false; }
 
 #ifdef DEKI_EDITOR
@@ -64,8 +64,7 @@ DEKI_PLUGIN_API const Deki::ComponentMeta* DekiPlugin_GetComponentMeta(int) { re
 DEKI_PLUGIN_API void DekiPlugin_RegisterComponents(void)
 {
 #ifdef DEKI_EDITOR
-    int n = DekiI2S_EnsureRegistered();
-    DEKI_LOG_INFO("[deki-i2s] ::DekiPlugin_RegisterComponents -> %d component(s)", n);
+    DekiI2S_EnsureRegistered();
 #endif
 }
 
