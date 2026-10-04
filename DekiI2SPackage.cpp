@@ -1,7 +1,4 @@
-/**
- * @file DekiI2SPackage.cpp
- * @brief Package entry point for deki-i2s
- */
+// Entry point of the deki-i2s package.
 #include "DekiI2SPackage.h"
 #include <deki/interop/Plugin.h>
 #include <deki/LogSystem.h>
@@ -88,6 +85,6 @@ extern "C"
 #endif
     }
 
-    // Pure utility package — facade-only. Nothing to register at package load.
+    // A utility package that is only a facade: nothing else to register at load.
 
 }  // extern "C"

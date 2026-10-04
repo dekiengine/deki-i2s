@@ -6,13 +6,11 @@
 namespace DekiI2s
 {
 
-/**
- * @brief Factory for I2S instances. Each chip driver owns its own I2S
- * (I2S is point-to-point, so there's no shared-bus registry).
- *
- * Platform integration packages (e.g. deki-esp32-integration) call SetFactory
- * at boot; chip drivers call Create() when they need an instance.
- */
+/// Factory for I2S instances. I2S is point-to-point, so each chip driver owns
+/// its own instance and there is no shared-bus registry.
+///
+/// Platform integration packages (e.g. deki-esp32-integration) call SetFactory
+/// at boot; chip drivers call Create() when they need an instance.
 class DEKI_I2S_API DekiI2S
 {
 public:
