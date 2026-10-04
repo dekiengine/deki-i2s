@@ -18,9 +18,9 @@ class DEKI_I2S_API DekiI2S
 public:
     using Factory = IDekiI2S* (*)();
 
-    static void      SetFactory(Factory factory);
+    static void SetFactory(Factory factory);
     static IDekiI2S* Create();
-    static bool      HasFactory();
+    static bool HasFactory();
 
 private:
     static Factory s_Factory;

@@ -26,7 +26,7 @@ class IDekiI2S : public Deki::IPackage
 public:
     const char* GetPackageCategory() const override { return "i2s"; }
 
-    virtual int  GetPort() const = 0;
+    virtual int GetPort() const = 0;
 
     /**
      * @brief Write raw PCM samples to the I2S TX channel.
@@ -35,10 +35,10 @@ public:
      * @param timeoutMs  Max time to block waiting for DMA space.
      * @return Bytes actually written (may be less than requested on timeout).
      */
-    virtual int  Write(const void* data, size_t bytes, uint32_t timeoutMs) = 0;
+    virtual int Write(const void* data, size_t bytes, uint32_t timeoutMs) = 0;
 
     virtual bool Start() = 0;
-    virtual bool Stop()  = 0;
+    virtual bool Stop() = 0;
 };
 
 }  // namespace DekiI2s
