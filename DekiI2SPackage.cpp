@@ -6,9 +6,9 @@
 #include <deki/interop/Plugin.h>
 #include <deki/LogSystem.h>
 
-extern void DekiI2S_RegisterComponents();
-extern int DekiI2S_GetAutoComponentCount();
-extern const Deki::ComponentMeta* DekiI2S_GetAutoComponentMeta(int index);
+extern void DekiI2SRegisterComponents();
+extern int DekiI2SGetAutoComponentCount();
+extern const Deki::ComponentMeta* DekiI2SGetAutoComponentMeta(int index);
 
 namespace DekiI2s
 {
@@ -25,26 +25,26 @@ using namespace DekiI2s;
 
 extern "C"
 {
-    DEKI_I2S_API int DekiI2S_EnsureRegistered(void)
+    DEKI_I2S_API int DekiI2SEnsureRegistered(void)
     {
 #ifdef DEKI_EDITOR
         if (s_I2SRegistered)
         {
-            return ::DekiI2S_GetAutoComponentCount();
+            return ::DekiI2SGetAutoComponentCount();
         }
         s_I2SRegistered = true;
-        ::DekiI2S_RegisterComponents();
-        return ::DekiI2S_GetAutoComponentCount();
+        ::DekiI2SRegisterComponents();
+        return ::DekiI2SGetAutoComponentCount();
 #else
         return 0;
 #endif
     }
 
-    DEKI_PLUGIN_API const char* DekiPlugin_GetName(void)
+    DEKI_PLUGIN_API const char* DekiPluginGetName(void)
     {
         return "Deki I2S Package";
     }
-    DEKI_PLUGIN_API const char* DekiPlugin_GetVersion(void)
+    DEKI_PLUGIN_API const char* DekiPluginGetVersion(void)
     {
 #ifdef DEKI_PACKAGE_VERSION
         return DEKI_PACKAGE_VERSION;
@@ -52,39 +52,39 @@ extern "C"
         return "0.0.0-dev";
 #endif
     }
-    DEKI_PLUGIN_API int DekiPlugin_Init(void)
+    DEKI_PLUGIN_API int DekiPluginInit(void)
     {
         return 0;
     }
-    DEKI_PLUGIN_API void DekiPlugin_Shutdown(void)
+    DEKI_PLUGIN_API void DekiPluginShutdown(void)
     {
         s_I2SRegistered = false;
     }
 
 #ifdef DEKI_EDITOR
-    DEKI_PLUGIN_API int DekiPlugin_GetComponentCount(void)
+    DEKI_PLUGIN_API int DekiPluginGetComponentCount(void)
     {
-        return ::DekiI2S_GetAutoComponentCount();
+        return ::DekiI2SGetAutoComponentCount();
     }
-    DEKI_PLUGIN_API const Deki::ComponentMeta* DekiPlugin_GetComponentMeta(int index)
+    DEKI_PLUGIN_API const Deki::ComponentMeta* DekiPluginGetComponentMeta(int index)
     {
-        return ::DekiI2S_GetAutoComponentMeta(index);
+        return ::DekiI2SGetAutoComponentMeta(index);
     }
 #else
-    DEKI_PLUGIN_API int DekiPlugin_GetComponentCount(void)
+    DEKI_PLUGIN_API int DekiPluginGetComponentCount(void)
     {
         return 0;
     }
-    DEKI_PLUGIN_API const Deki::ComponentMeta* DekiPlugin_GetComponentMeta(int)
+    DEKI_PLUGIN_API const Deki::ComponentMeta* DekiPluginGetComponentMeta(int)
     {
         return nullptr;
     }
 #endif
 
-    DEKI_PLUGIN_API void DekiPlugin_RegisterComponents(void)
+    DEKI_PLUGIN_API void DekiPluginRegisterComponents(void)
     {
 #ifdef DEKI_EDITOR
-        DekiI2S_EnsureRegistered();
+        DekiI2SEnsureRegistered();
 #endif
     }
 
